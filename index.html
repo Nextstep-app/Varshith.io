@@ -35,6 +35,7 @@ nav.scrolled{border-color:var(--border);background:rgba(6,6,10,.9);backdrop-filt
 .nav-cta{font-size:.73rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--bg);background:var(--gold);padding:.5rem 1.3rem;border-radius:2px;text-decoration:none;transition:background .25s;font-family:var(--ff-body);cursor:none;}
 .nav-cta:hover{background:var(--gold2);}
 
+
 /* ── HERO ── */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 4rem;max-width:1200px;margin:0 auto;position:relative;}
 .hero-label{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;opacity:0;transform:translateY(20px);animation:reveal .9s .3s ease forwards;display:flex;align-items:center;gap:1rem;}
@@ -193,8 +194,51 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;justi
 .footer-mantra{font-family:var(--ff-display);font-size:.9rem;font-style:italic;color:var(--gold);}
 
 /* ── INTERNSHIP BADGE ── */
-.internship-badge{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#4ade80;border:1px solid rgba(74,222,128,.25);background:rgba(74,222,128,.07);padding:.45rem 1rem;border-radius:100px;margin-bottom:2rem;opacity:0;animation:reveal .9s .15s ease forwards;}
-.internship-badge .badge-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0;animation:ping 1.5s ease-in-out infinite;}
+/* ── AVAILABILITY RIBBON ── */
+.hero-name-wrap{position:relative;display:inline-block;}
+.avail-ribbon{
+  position:absolute;
+  top:0.6rem;
+  left:calc(100% + 1.2rem);
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  padding:0.28rem 0.75rem;
+  border:1px solid rgba(201,169,110,0.3);
+  border-radius:3px;
+  background:rgba(201,169,110,0.04);
+  backdrop-filter:blur(6px);
+  white-space:nowrap;
+  opacity:0;
+  animation:reveal .8s .9s ease forwards;
+}
+.avail-ribbon::before{
+  content:'';
+  position:absolute;
+  left:-6px;
+  top:50%;
+  transform:translateY(-50%);
+  width:5px;
+  height:1px;
+  background:rgba(201,169,110,0.35);
+}
+.avail-ribbon-dot{
+  width:5px;height:5px;
+  border-radius:50%;
+  background:#4ade80;
+  flex-shrink:0;
+  box-shadow:0 0 5px rgba(74,222,128,0.8);
+  animation:ping 2s ease-in-out infinite;
+}
+.avail-ribbon-text{
+  font-family:var(--ff-mono);
+  font-size:0.58rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:rgba(201,169,110,0.7);
+  line-height:1;
+}
+
 
 /* ── COUNTDOWN ── */
 .countdown-wrap{margin-top:1.5rem;background:rgba(201,169,110,.05);border:1px solid rgba(201,169,110,.15);border-radius:4px;padding:1.5rem 2rem;display:inline-flex;flex-direction:column;gap:.75rem;}
@@ -312,9 +356,15 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;justi
 
 <!-- ════ HERO ════ -->
 <section id="hero">
-  <div class="internship-badge"><span class="badge-dot"></span>Open to Internship · Available Now</div>
   <div class="hero-label">AI Engineer · Full-Stack Builder · Founder · Chennai, India</div>
-  <h1 class="hero-name">Varshith<br><em>G S</em></h1>
+  <div class="hero-name-wrap">
+    <h1 class="hero-name">Varshith<br><em>G S</em></h1>
+    <div class="avail-ribbon">
+      <span class="avail-ribbon-dot"></span>
+      <span class="avail-ribbon-text">Open for Internships</span>
+    </div>
+  </div>
+  </div>
   <p class="hero-desc">Full-stack AI engineer currently in my third year at Vel Tech University. I build and ship real products — I also founded Thiran Private Ltd where I lead a 19-member team creating AI-powered tools for Indian students.</p>
   <div class="hero-actions">
     <a href="#work" class="btn-primary">View Work →</a>
@@ -333,6 +383,7 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;justi
 </section>
 
 <div class="divider"></div>
+
 
 <!-- ════ WORK ════ -->
 <section id="work">
@@ -563,6 +614,10 @@ footer{border-top:1px solid var(--border);padding:2.5rem 4rem;display:flex;justi
       <div>
         <div class="cert-name">Network Function Virtualization Fundamentals</div>
         <div class="cert-org">Infosys · Springboard</div>
+      </div>
+      <div>
+        <div class="cert-name">MongoDB Basics for Students</div>
+        <div class="cert-org">Credibly</div>
       </div>
     </div>
   </div>
